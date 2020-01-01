@@ -23,3 +23,16 @@ This vscode extension will automatically create the getters and setters for the 
 Select the fields you want, right click and click on *Generate Getter And Setter*:
 
 ![example-image](images/examplegetset.png)
+
+```
+String _name;
+int _age;
+
+ String get name => _name;
+
+ set name(String value) => _name = value;
+
+ int get age => _age;
+
+ set age(int value) => _age = value;
+ ```

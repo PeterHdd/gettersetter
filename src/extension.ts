@@ -63,9 +63,19 @@ export function activate(context: vscode.ExtensionContext) {
 	let arr = [];
 	function generateGetterAndSetter(prop, type){
 		let variableName = prop.split(" ").slice(-1);
+		console.log(variableName.toString().slice(1));
 		let varUpprName  = variableName.toString().charAt(0).toUpperCase() + variableName.toString().slice(1);
-		s = `\n ${type} get get${varUpprName} => ${variableName};`;
-		setter  = `\n set set${varUpprName}(${type} ${variableName}) => this.${variableName} = ${variableName};`;
+		if(prop.includes("_"))
+		{
+			let varLowerName  = variableName.toString().charAt(0).toLowerCase() + variableName.toString().slice(1);
+			s = `\n ${type} get ${varLowerName.replace("_","")} => ${variableName};`;
+			setter  = `\n set ${varLowerName.replace("_","")}(${type} value) => ${variableName} = value;`;
+		}
+		else
+		{
+			s = `\n ${type} get get${varUpprName} => ${variableName};`;
+			setter  = `\n set set${varUpprName}(${type} ${variableName}) => this.${variableName} = ${variableName};`;
+		}
 		let uri = vscode.window.activeTextEditor.document.getText();
 		if(uri.includes(`get${varUpprName}`)){
 			vscode.window.showErrorMessage('Setter and Getter already created.');
