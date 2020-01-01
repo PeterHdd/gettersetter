@@ -12,7 +12,7 @@
 
 You can either install it from vscode or from the following link:
 
-
+https://marketplace.visualstudio.com/items?itemName=PeterHdd.dartgettersetter
 
 ## Information
 
