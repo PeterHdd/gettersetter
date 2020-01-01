@@ -1,6 +1,13 @@
 # Dart Getters And Setters
 ## Automatically Generate Getters And Setters
 -------------------
+
+[![Version](https://vsmarketplacebadge.apphb.com/version/PeterHdd.dartgettersetter.svg)](https://marketplace.visualstudio.com/items?itemName=PeterHdd.dartgettersetter)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs/PeterHdd.dartgettersetter.svg)](https://marketplace.visualstudio.com/items?itemName=PeterHdd.dartgettersetter)
+![issues](https://img.shields.io/github/issues/peterhdd/gettersetter)
+![tweet](https://img.shields.io/twitter/url/https/github.com/PeterHdd/gettersetter.svg?style=social)
+![license](https://img.shields.io/github/license/peterhdd/gettersetter)
+
 ## Installation
 
 You can either install it from vscode or from the following link:
