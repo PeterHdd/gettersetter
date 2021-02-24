@@ -19,30 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let properties = text.split(/\r?\n/).filter(x => x.length > 2).map(x => x.replace(';', ''));
 		let generatedMethods = [];
 		for(let p of properties){
-			if(p.includes("num")){
-				 generatedMethods = generateGetterAndSetter(p,"num");
-			}			
-			if(p.includes("String")){
-				generatedMethods = generateGetterAndSetter(p,"String");
-			}
-			if(p.includes("int")){
-				generatedMethods = generateGetterAndSetter(p,"int");
-			}
-			if(p.includes("double")){
-				generatedMethods = generateGetterAndSetter(p,"double");
-			}
-			if(p.includes("bool")){
-				generatedMethods = generateGetterAndSetter(p,"bool");
-			}
-			if(p.includes("List")){
-				generatedMethods = generateGetterAndSetter(p,"List");
-			}
-			if(p.includes("Map")){
-				generatedMethods = generateGetterAndSetter(p,"Map");
-			}
-			if(p.includes("Set")){
-				generatedMethods = generateGetterAndSetter(p,"Set");
-			}
+			generatedMethods = generateGetterAndSetter(p);			
 		}
 
 		editor.edit(
@@ -61,23 +38,27 @@ export function activate(context: vscode.ExtensionContext) {
 	let s;
 	let setter;
 	let arr = [];
-	function generateGetterAndSetter(prop, type){
+	function generateGetterAndSetter(prop){
+		let type = prop.split(" ").splice(0)[0];
+		if(prop.includes("=")){
+			 prop = prop.substring(0,prop.lastIndexOf("=")).trim()
+		}
 		let variableName = prop.split(" ").slice(-1);
 		console.log(variableName.toString().slice(1));
 		let varUpprName  = variableName.toString().charAt(0).toUpperCase() + variableName.toString().slice(1);
 		if(prop.includes("_"))
 		{
 			let varLowerName  = variableName.toString().charAt(0).toLowerCase() + variableName.toString().slice(1);
-			s = `\n ${type} get ${varLowerName.replace("_","")} => ${variableName};`;
-			setter  = `\n set ${varLowerName.replace("_","")}(${type} value) => ${variableName} = value;`;
+			s = `\n ${type} get ${varLowerName.replace("_", "")} => this.${variableName};`;
+			setter  = `\n set ${varLowerName.replace("_","")}(${type} value) => this.${variableName} = value;`;
 		}
 		else
 		{
-			s = `\n ${type} get get${varUpprName} => ${variableName};`;
+			s = `\n ${type} get get${varUpprName} => this.${variableName};`;
 			setter  = `\n set set${varUpprName}(${type} ${variableName}) => this.${variableName} = ${variableName};`;
 		}
 		let uri = vscode.window.activeTextEditor.document.getText();
-		if(uri.includes(`get${varUpprName}`)){
+		if(uri.includes(`this.${variableName}`)){
 			vscode.window.showErrorMessage('Setter and Getter already created.');
 			return;
 		}

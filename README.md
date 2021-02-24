@@ -2,7 +2,7 @@
 ## Automatically Generate Getters And Setters
 -------------------
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/PeterHdd.dartgettersetter.svg)](https://marketplace.visualstudio.com/items?itemName=PeterHdd.dartgettersetter)
+[![Version](https://vsmarketplacebadge.apphb.com/version-short/PeterHdd.dartgettersetter.svg)](https://marketplace.visualstudio.com/items?itemName=PeterHdd.dartgettersetter)
 [![Installs](https://vsmarketplacebadge.apphb.com/installs/PeterHdd.dartgettersetter.svg)](https://marketplace.visualstudio.com/items?itemName=PeterHdd.dartgettersetter)
 ![issues](https://img.shields.io/github/issues/peterhdd/gettersetter)
 ![tweet](https://img.shields.io/twitter/url/https/github.com/PeterHdd/gettersetter.svg?style=social)
@@ -28,11 +28,11 @@ Select the fields you want, right click and click on *Generate Getter And Setter
 String _name;
 int _age;
 
- String get name => _name;
+ String get name => this._name;
 
- set name(String value) => _name = value;
+ set name(String value) => this._name = value;
 
- int get age => _age;
+ int get age => this._age;
 
- set age(int value) => _age = value;
+ set age(int value) => this._age = value;
  ```
