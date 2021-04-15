@@ -44,7 +44,6 @@ export function activate(context: vscode.ExtensionContext) {
 			 prop = prop.substring(0,prop.lastIndexOf("=")).trim()
 		}
 		let variableName = prop.split(" ").slice(-1);
-		console.log(variableName.toString().slice(1));
 		let varUpprName  = variableName.toString().charAt(0).toUpperCase() + variableName.toString().slice(1);
 		if(prop.includes("_"))
 		{
@@ -58,7 +57,7 @@ export function activate(context: vscode.ExtensionContext) {
 			setter  = `\n set set${varUpprName}(${type} ${variableName}) => this.${variableName} = ${variableName};`;
 		}
 		let uri = vscode.window.activeTextEditor.document.getText();
-		if(uri.includes(`this.${variableName}`)){
+		if(uri.includes(`=> this.${variableName}`)){
 			vscode.window.showErrorMessage('Setter and Getter already created.');
 			return;
 		}

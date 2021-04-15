@@ -2,7 +2,7 @@
 	"name": "dartgettersetter",
 	"displayName": "Dart Getters And Setters",
 	"description": "Dart Generate Getters And Setters",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"publisher": "PeterHdd",
 	"icon": "images/dart.png",
 	"license": "SEE LICENSE IN LICENSE.md",
