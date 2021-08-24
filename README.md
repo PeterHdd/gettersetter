@@ -36,3 +36,14 @@ int _age;
 
  set age(int value) => this._age = value;
  ```
+
+ ## Support!
+Support the repository by joining the [stargazers](https://github.com/PeterHdd/Firebase-Flutter-tutorials/stargazers) for this repo ⭐
+
+### Created & Maintained By
+
+[Peter](https://github.com/peterhdd) ([@peterndev](https://www.twitter.com/peterndev))
+
+If you found this extension helpful and want to thank me, consider buying me a cup of :coffee:
+
+<a href="https://www.buymeacoffee.com/peterhaddad" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
